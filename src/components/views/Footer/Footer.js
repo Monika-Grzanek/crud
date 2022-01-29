@@ -1,6 +1,6 @@
 const Footer = () => {
     return(
-        <h4>Footer</h4>
+        <p className='text-center text-muted'>Copyright &#169; BlogApp 2022</p>
     )
 }
 
