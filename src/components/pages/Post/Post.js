@@ -1,8 +1,7 @@
+
 const Post = () => {
     return (
-        <div>
-            <h1>Post</h1>
-        </div>
+        <h1>Single Post</h1>
     )
 }
 
