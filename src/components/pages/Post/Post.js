@@ -2,9 +2,9 @@ import { useParams } from 'react-router';
 import { getPostById } from './../../../redux/postsRedux';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row} from "react-bootstrap";
 import {NavLink} from 'react-router-dom';
-
+import ModalPage from './../../features/ModalPage.js';
 
 const Post = () => {
     const {id} = useParams();
@@ -23,8 +23,8 @@ const Post = () => {
                 </Card.Body>
             </Card>
             <div>
-                <Button as={NavLink} to={`/post/edit/${id}`} size="sm" variant="outline-info">Edit</Button>{' '}
-                <Button as={NavLink} to="/post/add" size="sm" variant="outline-danger">Remove</Button>
+                <Button as={NavLink} to={`/post/edit/${id}`} size="sm" variant="outline-info" >Edit</Button>{' '}
+                <ModalPage />
             </div>
         </div>
     )
