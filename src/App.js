@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home/Home.js';
 import Post from './components/pages/Post/Post.js';
-import PostAdd from './components/pages/PostAdd/PostAdd.js';
+import PostAdd from './components/views/PostAdd/PostAdd.js';
 import PostEdit from './components/pages/PostEdit/PostEdit.js';
 import About from './components/pages/About/About.js';
-import NotFound from './components/pages/NotFound/NotFound.js';
+import NotFound from './components/views/NotFound/NotFound.js';
 import Header from './components/views/Header/Header.js';
 import Footer from './components/views/Footer/Footer.js';
 import { Container } from 'react-bootstrap'
