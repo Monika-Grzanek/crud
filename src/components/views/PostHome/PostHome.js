@@ -1,5 +1,5 @@
 import { Card, Button, Col} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const PostHome = ({...post}) => {
     return (
@@ -18,7 +18,7 @@ const PostHome = ({...post}) => {
                     <Card.Text>
                         {post.shortDescription}
                     </Card.Text>
-                    <Button as={NavLink} to={`/post/${post.id}`} variant="primary">Read more</Button>
+                    <Button as={Link} to={`/post/${post.id}`} variant="primary">Read more</Button>
                 </Card.Body>    
             </Card>
         </Col>
