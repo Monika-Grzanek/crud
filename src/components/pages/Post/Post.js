@@ -3,7 +3,7 @@ import { getPostById } from './../../../redux/postsRedux';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { Button, Card, Row} from "react-bootstrap";
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ModalPage from './../../features/ModalPage.js';
 
 const Post = () => {
@@ -23,7 +23,7 @@ const Post = () => {
                 </Card.Body>
             </Card>
             <div>
-                <Button as={NavLink} to={`/post/edit/${id}`} size="sm" variant="outline-info" >Edit</Button>{' '}
+                <Button as={Link} to={`/post/edit/${id}`} size="sm" variant="outline-info" >Edit</Button>{' '}
                 <ModalPage />
             </div>
         </div>
