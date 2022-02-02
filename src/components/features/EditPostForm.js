@@ -12,8 +12,10 @@ const EditPostForm = () => {
     if(!id) return <Navigate to="/" />;
 
     const handleSubmit = post => {
+        console.log('ok');
         dispatch(editPost({...post, id}));
         navigate('/');
+    
     }
 
     return (
