@@ -18,7 +18,7 @@ export const editPost = (payload) => ({type: EDIT_POST, payload});
 const postsReducer = (statePart = [], action) => {
   switch (action.type) {
     case REMOVE_POST:
-      return [...statePart].filter(post => post.id !== action.payload.id);
+      return statePart.filter(post => post.id !== action.payload.id);
     case ADD_POST:
       return [...statePart, {id: shortid(), ...action.payload}] ;
     case EDIT_POST:
