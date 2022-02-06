@@ -1,5 +1,6 @@
 import { Card, Button, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { DateToStr } from '../../../utils/DateToString';
 
 const PostHome = ({...post}) => {
     return (
@@ -13,7 +14,7 @@ const PostHome = ({...post}) => {
                         <b>Author:</b> {post.author}
                     </p>
                     <p>
-                        <b>Published:</b> {post.publishedDate}
+                        <b>Published:</b> {DateToStr(post.publishedDate)}
                     </p>
                     <Card.Text>
                         {post.shortDescription}

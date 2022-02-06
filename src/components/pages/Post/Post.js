@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { Button, Card} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import ModalPage from './../../features/ModalPage.js';
+import { DateToStr } from '../../../utils/DateToString';
 
 const Post = () => {
     const {id} = useParams();
@@ -17,8 +18,8 @@ const Post = () => {
                 <Card.Title>{postData.title}</Card.Title>
                 <Card.Text>
                     <p><b>Author: </b>{postData.author}</p>
-                    <p><b>Published: </b>{postData.publishedDate}</p>
-                    <p>{postData.content}</p>
+                    <p><b>Published: </b>{DateToStr(postData.publishedDate)}</p>
+                    <p dangerouslySetInnerHTML={{ __html: postData.content }} />
                 </Card.Text>
                 </Card.Body>
             </Card>
