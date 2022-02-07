@@ -24,6 +24,20 @@ const initialState = {
             publishedDate: new Date('03-02-2021'),
             author: 'Mike Tyler'
         }
+    ],
+    categories: [
+        {
+            id: '1',
+            title: 'News',
+        },
+        {
+            id: '2',
+            title: 'Sport',
+        },
+        {
+            id: '3',
+            title: 'Movies',
+        },
     ]
 };
 

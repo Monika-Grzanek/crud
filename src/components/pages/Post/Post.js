@@ -6,9 +6,11 @@ import { Button, Card} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import ModalPage from './../../features/ModalPage.js';
 import { DateToStr } from '../../../utils/DateToString';
+import { getAllCategories } from '../../../redux/categoriesRedux';
 
 const Post = () => {
     const {id} = useParams();
+    const category = useSelector(getAllCategories);
     const postData = useSelector(state => getPostById(state, id));
     if(!postData) return <Navigate to="/" />
     return (
@@ -19,6 +21,7 @@ const Post = () => {
                 <Card.Text>
                     <p><b>Author: </b>{postData.author}</p>
                     <p><b>Published: </b>{DateToStr(postData.publishedDate)}</p>
+                    <p><b>Category: </b> {category} </p>
                     <p dangerouslySetInnerHTML={{ __html: postData.content }} />
                 </Card.Text>
                 </Card.Body>

@@ -2,7 +2,7 @@ import { Card, Button, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { DateToStr } from '../../../utils/DateToString';
 
-const PostHome = ({...post}) => {
+const PostHome = ({...post}, {...category}) => {
     return (
         <Col sm={12} md={6} lg={4}>
             <Card >
@@ -15,6 +15,9 @@ const PostHome = ({...post}) => {
                     </p>
                     <p>
                         <b>Published:</b> {DateToStr(post.publishedDate)}
+                    </p>
+                    <p>
+                        <b>Category: </b> {category.title}
                     </p>
                     <Card.Text>
                         {post.shortDescription}
