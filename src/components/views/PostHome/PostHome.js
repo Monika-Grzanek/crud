@@ -17,7 +17,7 @@ const PostHome = ({...post}, {...category}) => {
                         <b>Published:</b> {DateToStr(post.publishedDate)}
                     </p>
                     <p>
-                        <b>Category: </b> {category.title}
+                        <b>Category: </b> {category.titleCat}
                     </p>
                     <Card.Text>
                         {post.shortDescription}

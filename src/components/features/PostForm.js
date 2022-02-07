@@ -4,13 +4,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
+import { getAllCategories } from '../../redux/categoriesRedux.js';
+import { useSelector } from 'react-redux';
 
 // CSS Modules, react-datepicker-cssmodules.css
 //import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 
 const PostForm = ({action, actionText, ...props}) => {
-  
+    const categories = useSelector(getAllCategories);
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
     const [contentError, setContentError] = useState(false);
@@ -25,7 +27,7 @@ const PostForm = ({action, actionText, ...props}) => {
         setContentError(!content)
         setDateError(!publishedDate)
         if(content && publishedDate) {
-            action({ title, author, publishedDate, shortDescription, content });
+            action({ title, author, publishedDate, shortDescription, content});
         }
     }
 
@@ -44,6 +46,12 @@ const PostForm = ({action, actionText, ...props}) => {
             <Form.Label>Published</Form.Label>
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
             {dateError && <small className="d-block form-text text-danger mt-2">This field is required</small>}
+            <p></p>
+            <Form.Select aria-label="Default select example">
+                <option>Select category...</option>
+                {categories.map(category => <option value={category.idCat}>{category.titleCat}</option>  )}
+            </Form.Select>
+            <p></p>
             <Form.Group className="mb-3" controlId="formBasicComment">
                 <Form.Label>Short description</Form.Label>
                 <Form.Control as="textarea" rows={5} placeholder="Leave a comment here" {...register("shortDescription", { required: true, minLength: 20 })} value={shortDescription} onChange={e => setShortDescription(e.target.value)} />

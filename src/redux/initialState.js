@@ -27,16 +27,16 @@ const initialState = {
     ],
     categories: [
         {
-            id: '1',
-            title: 'News',
+            idCat: '1',
+            titleCat: 'News',
         },
         {
-            id: '2',
-            title: 'Sport',
+            idCat: '2',
+            titleCat: 'Sport',
         },
         {
             id: '3',
-            title: 'Movies',
+            titleCat: 'Movies',
         },
     ]
 };
