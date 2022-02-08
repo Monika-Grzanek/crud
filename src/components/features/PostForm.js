@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { getAllCategories } from '../../redux/categoriesRedux.js';
 import { useSelector } from 'react-redux';
 
 // CSS Modules, react-datepicker-cssmodules.css
-//import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
 
 
 const PostForm = ({action, actionText, ...props}) => {
