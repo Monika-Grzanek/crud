@@ -1,24 +1,16 @@
 import { ListGroup} from "react-bootstrap";
-import {Link} from 'react-router-dom';
-import { useParams } from 'react-router';
-
+import { useSelector } from 'react-redux';
+import {getAllCategories} from './../../../redux/categoriesRedux'
+import CategoriesHome from "../../views/CategoriesHome/CategoriesHome";
 
 const Categories = () => {
-    const {titleCat} = useParams;
+    const categories = useSelector(getAllCategories);
     return (
         <div>
             <h1>All categories</h1>
         
             <ListGroup>
-                <ListGroup.Item action as={Link} to={`/categories/${titleCat}`}>
-                    News
-                </ListGroup.Item>
-                <ListGroup.Item action as={Link} to={`/categories/${titleCat}`} >
-                    Sport   
-                </ListGroup.Item>
-                <ListGroup.Item action as={Link} to={`/categories/${titleCat}`} >
-                    Movies
-                </ListGroup.Item>
+                {categories.map(category => <CategoriesHome key={category.idCat} {...category} /> )}
             </ListGroup>
         </div>
     )
