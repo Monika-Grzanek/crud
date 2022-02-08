@@ -10,7 +10,7 @@ const Categories = () => {
             <h1>All categories</h1>
         
             <ListGroup>
-                {categories.map(category => <CategoriesHome key={category.idCat} {...category} /> )}
+                {categories.map(category => <CategoriesHome key={category.id} {...category} /> )}
             </ListGroup>
         </div>
     )

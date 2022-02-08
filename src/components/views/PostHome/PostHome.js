@@ -1,8 +1,11 @@
 import { Card, Button, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { DateToStr } from '../../../utils/DateToString';
+import { useSelector } from 'react-redux';
+import { getCategoryById } from '../../../redux/categoriesRedux';
 
-const PostHome = ({...post}, {...category}) => {
+const PostHome = ({...post}) => {
+    const categoryData = useSelector(state => getCategoryById(state, post.category));
     return (
         <Col sm={12} md={6} lg={4}>
             <Card >
@@ -17,7 +20,7 @@ const PostHome = ({...post}, {...category}) => {
                         <b>Published:</b> {DateToStr(post.publishedDate)}
                     </p>
                     <p>
-                        <b>Category: </b> {category.titleCat}
+                        <b>Category: </b> {categoryData.title}
                     </p>
                     <Card.Text>
                         {post.shortDescription}

@@ -10,9 +10,10 @@ import { getCategoryById } from '../../../redux/categoriesRedux';
 
 
 const Post = () => {
-    const {id, idCat} = useParams();
-    const categoryData = useSelector(state => getCategoryById(state, idCat))
+    const {id} = useParams();
     const postData = useSelector(state => getPostById(state, id));
+    const categoryData = useSelector(state => getCategoryById(state, postData.category));
+
     if(!postData) return <Navigate to="/" />
     return (
         <div className="posts-navi d-flex justify-content-around" >
@@ -22,7 +23,7 @@ const Post = () => {
                 <Card.Text>
                     <p><b>Author: </b>{postData.author}</p>
                     <p><b>Published: </b>{DateToStr(postData.publishedDate)}</p>
-                    <p><b>Category: </b>{categoryData.titleCat}</p>
+                    <p><b>Category: </b>{categoryData.title}</p>
                     <p dangerouslySetInnerHTML={{ __html: postData.content }} />
                 </Card.Text>
                 </Card.Body>

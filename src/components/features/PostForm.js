@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { getAllCategories } from '../../redux/categoriesRedux.js';
@@ -23,12 +23,13 @@ const PostForm = ({action, actionText, ...props}) => {
     const [publishedDate, setPublishedDate] = useState(props.publishedDate || '' );
     const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
     const [content, setContent] = useState(props.content || '');
+    const [category, setCategory] = useState(props.category || '');
 
     const handleSubmit = e => {
         setContentError(!content)
         setDateError(!publishedDate)
         if(content && publishedDate) {
-            action({ title, author, publishedDate, shortDescription, content});
+            action({ title, author, publishedDate, shortDescription, content, category});
         }
     }
 
@@ -48,9 +49,9 @@ const PostForm = ({action, actionText, ...props}) => {
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} />
             {dateError && <small className="d-block form-text text-danger mt-2">This field is required</small>}
             <p></p>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Default select example" onChange={e => setCategory(e.currentTarget.value)}>
                 <option>Select category...</option>
-                {categories.map(category => <option value={category.idCat}>{category.titleCat}</option>  )}
+                {categories.map(cat => <option value={cat.id} selected={cat.id === category}>{cat.title}</option>  )}
             </Form.Select>
             <p></p>
             <Form.Group className="mb-3" controlId="formBasicComment">
