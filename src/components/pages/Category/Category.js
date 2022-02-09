@@ -9,7 +9,9 @@ const Category = () => {
     const {titleCat} = useParams();
     
     const postCat = useSelector(state => getPostByCategory(state, titleCat));
-    const categoryData = useSelector(state => getCategoryById(state, titleCat))
+    const categoryData = useSelector(state => getCategoryById(state, titleCat));
+    console.log(postCat);
+    if(postCat === null) return <h6>This category is empty</h6>;
     return (
         <>
             <h1>Category: {categoryData.title}</h1>

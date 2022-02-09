@@ -12,7 +12,7 @@ import { getCategoryById } from '../../../redux/categoriesRedux';
 const Post = () => {
     const {id} = useParams();
     const postData = useSelector(state => getPostById(state, id));
-    const categoryData = useSelector(state => getCategoryById(state, postData.category));
+    const categoryData = useSelector(state => getCategoryById(state, id));
 
     if(!postData) return <Navigate to="/" />
     return (
