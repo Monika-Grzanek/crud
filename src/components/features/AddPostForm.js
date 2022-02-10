@@ -9,6 +9,7 @@ const AddPostFrom = () => {
     const handleSubmit = post => {
         dispatch(addPost({...post}));
         navigate('/');
+        console.log(post)
     }
 
     return (      
